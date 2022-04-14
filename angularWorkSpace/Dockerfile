@@ -1,8 +1,9 @@
 FROM nginx:alpine
- # use a volume is mor efficient and speed that filesystem
- # VOLUME /tmp
+# use a volume is mor efficient and speed that filesystem
+VOLUME /tmp
 RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/nginx.conf
+#COPY dist /usr/share/nginx/html
 COPY billingApp_prep /usr/share/nginx/html/billingApp_prep
 COPY billingApp_prod /usr/share/nginx/html/billingApp_prod
 #expose app and 80 for nginx app
